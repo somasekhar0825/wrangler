@@ -1,19 +1,19 @@
-# wrangler
-Modified Wrangler  with byte size and time duration unit support 
+## 📄 prompts.txt
 
-# Wrangler Enhancement: ByteSize and TimeDuration Units
+This file contains sample usage of the custom directive `aggregate-stats`.
 
-This repository contains enhancements to the CDAP Wrangler library for parsing and aggregating byte size and time duration units.
+### Examples:
 
-## Features Added
+```text
+# Aggregating time durations
+aggregate-stats field:duration type:time
 
-- Parsing support for values like `10KB`, `2MB`, `1.5GB`
-- Parsing support for durations like `100ms`, `1.2s`, `3m`, `2h`
-- New directive: `aggregate-stats` for aggregating data size and time duration
+# Aggregating download size in bytes
+aggregate-stats field:download_size type:size
 
-## Usage
+# Another example with network data
+aggregate-stats field:network_traffic type:size
 
-Example directive usage:
-
-```wrangler
-aggregate-stats :size_column :duration_column total_size_mb total_time_sec
+# Multiple fields
+aggregate-stats field:uptime type:time
+aggregate-stats field:data_used type:size
